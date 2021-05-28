@@ -3,24 +3,15 @@ body {
   font-family: 'Work Sans',sans-serif;
   text-align:center;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-  
-  
-  
+ 
   nav {
   background: linear-gradient(to left, #380f0f, #9c3e3e, #380f0f); 
   padding:1rem 0;
-  text-align:center;
-  color:rgb(26, 17, 17);
   border-radius: 10px;
   box-shadow:0 15px 30px 0 rgb(18, 22, 26);   
-  font-size:35px;
+  font-size:30px;
 }
-  
+
   nav a {
     font-weight: 700;
     padding: 1rem 1.5rem;
@@ -28,12 +19,12 @@ code {
   }
   
   a {
-    color: #239683;
+    color: #ffffff;
     text-decoration: none;
   }
   
   section {
-    max-width: 800px;
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 1.5rem;

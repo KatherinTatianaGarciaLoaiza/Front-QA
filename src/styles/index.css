@@ -1,0 +1,111 @@
+body {
+  background: linear-gradient(to right, #f3b6b6, #9b2828); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Work Sans',sans-serif;
+  text-align:center;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+  
+  
+  
+  nav {
+  background: linear-gradient(to left, #380f0f, #9c3e3e, #380f0f); 
+  padding:1rem 0;
+  text-align:center;
+  color:rgb(26, 17, 17);
+  border-radius: 10px;
+  box-shadow:0 15px 30px 0 rgb(18, 22, 26);   
+  font-size:35px;
+}
+  
+  nav a {
+    font-weight: 700;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+  }
+  
+  a {
+    color: #239683;
+    text-decoration: none;
+  }
+  
+  section {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem;
+  }
+  
+  section h1 {
+    background: linear-gradient(to left, #6d0000, #ec5b5b, #6d0000); 
+  padding:1rem 0;
+  text-align:center;
+  color:rgb(255, 255, 255);
+  box-shadow:0 15px 30px 0 rgb(18, 22, 26);   
+  font-size:35px; 
+  }
+  
+  input, select, textarea {
+    background: linear-gradient(to left, #a02d2d, #ffffff, #a02d2d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding:10px 30px;
+    text-align: center;
+    color:rgb(0, 0, 0);
+    border-radius:20px;
+    box-shadow:0 10px 15px 0 rgb(18, 22, 26);
+    font-size:15px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  .question h2 {
+    background: linear-gradient(to left, #a02d2d, #ffffff, #a02d2d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding:10px 30px;
+    color:rgb(0, 0, 0);
+  }
+  
+  .question-excerpt {
+    background: linear-gradient(to left, #a02d2d, #ffffff, #a02d2d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding:10px 30px;
+    color:rgb(0, 0, 0);
+  }
+  
+  .question-excerpt h2 {
+    background: linear-gradient(to left, #911313, #ffffff, #911313); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding:10px 30px;
+    color:rgb(0, 0, 0);
+  }
+  
+  .answer {
+    background: linear-gradient(to left, #a02d2d, #ffffff, #a02d2d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding:10px 30px;
+    color:rgb(0, 0, 0);
+    border-radius:20px;
+    box-shadow:0 10px 15px 0 rgb(18, 22, 26);
+    font-size:15px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    
+  }
+  
+.button{
+  background: linear-gradient(to left, #6d0000, #ec5b5b, #6d0000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding:10px 30px;
+  text-align: center;
+  color:rgb(255, 255, 255);
+  border-radius:50px;
+  box-shadow:0 10px 20px 0 rgb(18, 22, 26);
+  font-size:20px;
+  }
+
+  .right {
+    float: right;
+  }
+
+ 

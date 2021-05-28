@@ -1,0 +1,17 @@
+img {
+    border-radius: 50%;
+    width: 100%;
+}
+
+picture {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 150px;
+    
+}
+
+.ava {
+    Align-Items: center;
+    Justify-Content: centre;
+}

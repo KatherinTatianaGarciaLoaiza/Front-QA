@@ -47,12 +47,36 @@ export function fetchQuestion(id) {
         try {
             const response = await fetch(`${URL_BASE}/getQuestion/${id}`)
             const data = await response.json()
+            /* console.log(data.answers.length) */ 
             dispatch(success({ question: data, redirect: null }))
+            return data;
         } catch (error) {
             dispatch(failure())
         }
     }
 }
+
+/* export function fetchQuestion(id) {
+    const variable =async dispatch => {
+        dispatch(loading())
+        try {
+            const response = await fetch(`${URL_BASE}/getQuestion/${id}`)
+            const data = await response.json()
+            console.log("inicia tamaño")
+            console.log(data)
+            console.log(data.userId)
+            console.log(data.id)
+            console.log(data.question)
+            console.log(data.answers.length)
+            console.log("termina tamaño")
+            dispatch(success({ question: data.answers, redirect: null }))
+        } catch (error) {
+            dispatch(failure())
+        }
+    }
+    console.log("imprime aqui "+variable);
+    return variable;
+} */
 
 export function postQuestion(question) {
     return async dispatch => {
@@ -112,6 +136,28 @@ export function postAnswer(answer) {
             )
             const data = await response.json()
             dispatch(success({redirect: `/question/${answer.questionId}`}));
+        } catch (error) {
+            dispatch(failure())
+        }
+    }
+}
+
+export function putQuestion(question) {
+    return async dispatch => {
+        dispatch(loading())
+        try {
+            const response = await fetch(`${URL_BASE}/update`,
+                {
+                    method: 'PUT',
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(question)
+                }
+            )
+            const id = await response.text()
+            dispatch(success({redirect: `/question/${id}`}));
         } catch (error) {
             dispatch(failure())
         }

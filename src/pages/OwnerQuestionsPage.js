@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
-
-import { fetchOwnerQuestions, deleteQuestion, putQuestion, fetchQuestion, postQuestion } from '../actions/questionActions'
+import { useHistory } from 'react-router-dom'
+import { fetchOwnerQuestions, deleteQuestion, fetchQuestion } from '../actions/questionActions'
 import { Question } from '../components/Question'
 
 const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect }) => {
@@ -24,13 +23,15 @@ const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect 
     }
 
     const onUpdate = (id) => {
-        dispatch(fetchQuestion(id)).then((value) => {
-            console.log(value.answers.length);
+        dispatch(fetchQuestion(id, true)).then((value) => {
             if (value.answers.length > 0) {
-                alert("no se puede modificar la pregunta, se creara una nueva")
+                alert("No se puede modificar la pregunta, se creara una nueva")
                 history.push("/new");
             } else {
-                putQuestion(value)
+                history.push({
+                    pathname:'/questiones',
+                    state: value 
+                });
             }
         });
     }

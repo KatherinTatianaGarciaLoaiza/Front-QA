@@ -3,10 +3,17 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { postQuestion } from '../actions/questionActions'
 import { connect } from 'react-redux'
+import { useLocation } from "react-router-dom";
 
-const FormPageUpdate = ({ dispatch, loading, redirect, hasErrors,question }) => {
+const FormPageUpdate = ({ dispatch, loading, redirect,id, userId, question, type, category }) => {
     const { register, handleSubmit } = useForm();
     const history = useHistory();
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log(location.pathname); // result: '/secondpage'
+        console.log(location.state);
+     }, [location]);
 
     const onSubmit = data => {
         data.userId =  localStorage.getItem("uid");
@@ -50,7 +57,7 @@ const FormPageUpdate = ({ dispatch, loading, redirect, hasErrors,question }) => 
 
                 <div>
                     <label for="question">Question</label>
-                    <textarea id="question" {...register("question", { required: true, maxLength: 300 })}  placeholder={question}/>
+                    <textarea id="question" {...register("question", { required: true, maxLength: 300 })} value={location.state.question}/>
                 </div>
                 <button type="submit" className="button" disabled={loading} >{
                     loading ? "Saving ...." : "Save"

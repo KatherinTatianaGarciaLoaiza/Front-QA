@@ -8,8 +8,6 @@ import {
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-
-
 import { PublicNavbar, PrivateNavbar } from './components/Navbar'
 import HomePage from './pages/HomePage'
 import SingleQuestionPage from './pages/SingleQuestionPage'
@@ -54,7 +52,7 @@ const App = () => {
             <Route exact path="/answer/:id" component={AnswerFormPage} />
             <Route exact path="/new" component={QuestionFormPage} />
             <Route exact path="/info" component={AvatarPage} />
-            <Route exact path="/questiones/:id" component={QuestionFormPageUpdate}/>
+            <Route exact path="/questiones" component={QuestionFormPageUpdate}/>
             <Redirect to="/" />
           </Switch>
         </> :
@@ -67,7 +65,6 @@ const App = () => {
             <Route exact path="/questions" component={QuestionsPage} />
             <Route exact path="/question/:id" component={SingleQuestionPage} />
             <Route exact path="/answer/:id" component={AnswerFormPage} />
-            <Route exact path="/questiones/:id" component={QuestionFormPageUpdate} />
             <Route exact path="/info" component={AvatarPage} />
             <Redirect to="/" />
           </Switch>

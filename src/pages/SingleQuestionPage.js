@@ -18,7 +18,7 @@ const SingleQuestionPage = ({
   const userId = localStorage.getItem("uid");
 
   useEffect(() => {
-    dispatch(fetchQuestion(id))
+    dispatch(fetchQuestion(id, false))
   }, [dispatch, id])
 
   const renderQuestion = () => {

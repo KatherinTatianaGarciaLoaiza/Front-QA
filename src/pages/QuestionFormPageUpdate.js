@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import { postQuestion } from '../actions/questionActions'
+import { putQuestion } from '../actions/questionActions'
 import { connect } from 'react-redux'
 import { useLocation } from "react-router-dom";
 
@@ -10,14 +10,17 @@ const FormPageUpdate = ({ dispatch, loading, redirect,id, userId, question, type
     const history = useHistory();
     const location = useLocation();
 
+    const[texto, setTexto] = useState(location.state.question);
+
     useEffect(() => {
         console.log(location.pathname); // result: '/secondpage'
         console.log(location.state);
      }, [location]);
 
     const onSubmit = data => {
-        data.userId =  localStorage.getItem("uid");
-        dispatch(postQuestion(data));
+        data.userId =  location.state.userId;
+        data.id = location.state.id;
+        dispatch(putQuestion(data));
     };
 
     useEffect(() => {
@@ -35,7 +38,8 @@ const FormPageUpdate = ({ dispatch, loading, redirect,id, userId, question, type
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div>
-                    <label for="type">Type</label>
+                    <label for="type">Type selected</label>
+                    <input type="text" value={location.state.type} readOnly/>
                     <select {...register("type")} id="">
                         <option value="OPEN (LONG OPEN BOX)">OPEN (LONG OPEN BOX)</option>
                         <option value="OPINION (SHORT OPEN BOX)">OPINION (SHORT OPEN BOX)</option>
@@ -44,7 +48,8 @@ const FormPageUpdate = ({ dispatch, loading, redirect,id, userId, question, type
                     </select>
                 </div>
                 <div>
-                    <label for="category">Category</label>
+                    <label for="category">Category selected</label>
+                    <input type="text" value={location.state.category} readOnly/>
                     <select {...register("category")} id="category">
                         <option value="TECHNOLOGY AND COMPUTER">TECHNOLOGY AND COMPUTER</option>
                         <option value="SCIENCES">SCIENCES</option>
@@ -57,7 +62,7 @@ const FormPageUpdate = ({ dispatch, loading, redirect,id, userId, question, type
 
                 <div>
                     <label for="question">Question</label>
-                    <textarea id="question" {...register("question", { required: true, maxLength: 300 })} value={location.state.question}/>
+                    <textarea id="question" {...register("question", { required: true, maxLength: 300 })} value={texto} onChange = {(e)=>setTexto(e.target.value)}/>
                 </div>
                 <button type="submit" className="button" disabled={loading} >{
                     loading ? "Saving ...." : "Save"

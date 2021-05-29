@@ -122,6 +122,7 @@ export function postAnswer(answer) {
 }
 
 export function putQuestion(question) {
+    console.log(JSON.stringify(question))
     return async dispatch => {
         dispatch(loading())
         try {
@@ -134,7 +135,7 @@ export function putQuestion(question) {
                     },
                     body: JSON.stringify(question)
                 }
-            )
+            )            
             const id = await response.text()
             dispatch(success({redirect: `/question/${id}`}));
         } catch (error) {

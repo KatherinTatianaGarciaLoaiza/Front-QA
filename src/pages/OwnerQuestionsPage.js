@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { fetchOwnerQuestions, deleteQuestion, fetchQuestion } from '../actions/questionActions'
 import { Question } from '../components/Question'
+import swal from 'sweetalert';
 
 const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect }) => {
     const history = useHistory();
@@ -25,12 +26,19 @@ const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect 
     const onUpdate = (id) => {
         dispatch(fetchQuestion(id, true)).then((value) => {
             if (value.answers.length > 0) {
-                alert("No se puede modificar la pregunta, se creara una nueva")
+                swal(
+                    "¡¡¡Atencion!!!",
+                    "No se puede modificar la pregunta porque esta contiene respuestas, debido a esto se creara una nueva",
+                    "warning")
                 history.push("/new");
             } else {
+                swal(
+                    "¡¡¡Atencion!!!",
+                    "Podras modificar el tipo, la categoria y la pregunta",
+                    "success")
                 history.push({
-                    pathname:'/questiones',
-                    state: value 
+                    pathname: '/questiones',
+                    state: value
                 });
             }
         });

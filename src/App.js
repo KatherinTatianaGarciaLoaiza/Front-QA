@@ -18,6 +18,7 @@ import OwnerQuestionsPage from './pages/OwnerQuestionsPage'
 import { useAuthState } from "react-firebase-hooks/auth";
 import AvatarPage from './pages/AvatarPage';
 import QuestionFormPageUpdate from './pages/QuestionFormPageUpdate';
+import { Navbar, Nav } from 'reactstrap';
 
 firebase.initializeApp({
   apiKey: "AIzaSyC09aJakDw2u96sXHP1c5lOHDIstF88MBo",
@@ -34,7 +35,7 @@ const auth = firebase.auth();
 
 const App = () => {
   const [user] = useAuthState(auth);
-  if(user?.uid){
+  if (user?.uid) {
     localStorage.setItem("uid", user?.uid);
   }
   return (
@@ -44,15 +45,14 @@ const App = () => {
           <PrivateNavbar />
           <Switch>
             <Route exact path="/" component={() => {
-              return <HomePage><SignOut /></HomePage>
-            }} />
+              return <HomePage/>}} />
             <Route exact path="/questions" component={QuestionsPage} />
             <Route exact path="/question/:id" component={SingleQuestionPage} />
             <Route exact path="/list" component={OwnerQuestionsPage} />
             <Route exact path="/answer/:id" component={AnswerFormPage} />
             <Route exact path="/new" component={QuestionFormPage} />
             <Route exact path="/info" component={AvatarPage} />
-            <Route exact path="/questiones" component={QuestionFormPageUpdate}/>
+            <Route exact path="/questiones" component={QuestionFormPageUpdate} />
             <Redirect to="/" />
           </Switch>
         </> :
@@ -60,8 +60,7 @@ const App = () => {
           <PublicNavbar />
           <Switch>
             <Route exact path="/" component={() => {
-              return <HomePage><SignIn /></HomePage>
-            }} />
+              return <HomePage/>}} />
             <Route exact path="/questions" component={QuestionsPage} />
             <Route exact path="/question/:id" component={SingleQuestionPage} />
             <Route exact path="/answer/:id" component={AnswerFormPage} />
@@ -75,7 +74,7 @@ const App = () => {
 }
 
 
-function SignIn() {
+export function SignIn() {
   const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
@@ -83,7 +82,7 @@ function SignIn() {
   return <button className="button right" onClick={signInWithGoogle}>Sign in with google</button>;
 }
 
-function SignOut() {
+export function SignOut() {
   return (
     auth.currentUser && (
       <button

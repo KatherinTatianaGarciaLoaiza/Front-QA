@@ -6,9 +6,9 @@ import '../styles/Avatar.css';
  */
 export const Avatar = ({ name, src }) => {
     return (
-        <div className="ava">
+        <div className="avatar">
             <picture>
-                <img src={src}/>
+                <img src={src} className="avatar"/>
             </picture>
             <h3>{name}</h3>
         </div>

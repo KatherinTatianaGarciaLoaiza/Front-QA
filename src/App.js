@@ -18,7 +18,6 @@ import OwnerQuestionsPage from './pages/OwnerQuestionsPage'
 import { useAuthState } from "react-firebase-hooks/auth";
 import AvatarPage from './pages/AvatarPage';
 import QuestionFormPageUpdate from './pages/QuestionFormPageUpdate';
-import { Navbar, Nav } from 'reactstrap';
 
 firebase.initializeApp({
   apiKey: "AIzaSyC09aJakDw2u96sXHP1c5lOHDIstF88MBo",
